@@ -1,6 +1,5 @@
 package model;
 
-import android.R.integer;
 
 public class Province {
 	

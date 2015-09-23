@@ -13,11 +13,11 @@ public class CoolWeatherOpenHelp extends SQLiteOpenHelper {
 	
 	//city建表语句
 	public static final String CREAT_CITY = "create table City("+
-			"id integer primary key autoincrement,"+"city_name text,"+"province_id integer,"+"city_code text)";
+			"id integer primary key autoincrement,"+"city_name text,"+"city_code text,"+"province_id integer)";
 	
 	//country建表语句
 	public static final String CREAT_COUNTRY = "create table Country("+
-			"id integer primary key autoincrement,"+"country_name text,"+"city_id integer,"+"country_code text)";
+			"id integer primary key autoincrement,"+"country_name text,"+"country_code text,"+"city_id integer)";
 	
 
 	public CoolWeatherOpenHelp(Context context, String name,

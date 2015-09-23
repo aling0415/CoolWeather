@@ -1,14 +1,17 @@
-package model;
+package db;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import db.CoolWeatherOpenHelp;
-import android.R.integer;
+import model.City;
+import model.Country;
+import model.Province;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import db.CoolWeatherOpenHelp;
 
 public class CoolWeatherDB {
 	
@@ -95,14 +98,14 @@ public class CoolWeatherDB {
 			ContentValues values = new ContentValues();
 			values.put("country_name", country.getCountryName());
 			values.put("country_code", country.getCountryCode());
-			values.put("Province_id", country.getCityId());
+			values.put("city_id", country.getCityId());
 			db.insert("country", null, values);
 		}
 	}
-	//从数据库读取某省下所有城市的信息
+	//从数据库读取某城市下所有县的信息
 	public List<Country> loadCounties(int cityId){
 		List<Country> list = new ArrayList<Country>();
-		Cursor cursor = db.query("country", null, "province_id = ?", new String[]{String.valueOf(cityId)}, null, null, null);
+		Cursor cursor = db.query("country", null, "city_id = ?", new String[]{String.valueOf(cityId)}, null, null, null);
 		if (cursor.moveToFirst()) {
 			do {
 				Country country = new Country();
